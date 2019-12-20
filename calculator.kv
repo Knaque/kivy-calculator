@@ -27,7 +27,13 @@
                 size: self.size
                 background_normal: 'graphics/red_button_up.png'
                 background_down: 'graphics/red_button_down.png'
-                text: "Clear"
+                text: "Del"
+                on_press: app.current_equation = app.current_equation[:-1]
+            Button:
+                size: self.size
+                background_normal: 'graphics/red_button_up.png'
+                background_down: 'graphics/red_button_down.png'
+                text: "Clr"
                 on_press: app.current_equation = ""
             Button:
                 size: self.size

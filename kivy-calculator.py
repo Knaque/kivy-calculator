@@ -24,6 +24,9 @@ class CalculatorScreen(Screen):
         except NameError:
             self.app = App.get_running_app()
             self.app.current_equation = "Error"
+        except ZeroDivisionError:
+            self.app = App.get_running_app()
+            self.app.current_equation = "Error"
 
 
 class CalculatorApp(App):
