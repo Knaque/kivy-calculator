@@ -1,20 +1,35 @@
 """A little calculator app built in Python & Kivy."""
 
-from kivy.app import App
-from kivy.uix.screenmanager import Screen
-from kivy.properties import StringProperty
+try:
+    from kivy.app import App
+    from kivy.uix.screenmanager import Screen
+    from kivy.properties import StringProperty
+except ModuleNotFoundError:
+    print("Kivy is not installed. Please run the following command:")
+    print("sudo python3.7 -m pip install kivy")
+    quit()
 
 
 class CalculatorScreen(Screen):
     """Main screen for calculator."""
 
-    pass
+    def calculate(self):
+        """Calculate the result."""
+        try:
+            self.app = App.get_running_app()
+            self.app.current_equation = str(eval(self.app.current_equation))
+        except SyntaxError:
+            self.app = App.get_running_app()
+            self.app.current_equation = "Error"
+        except NameError:
+            self.app = App.get_running_app()
+            self.app.current_equation = "Error"
 
 
 class CalculatorApp(App):
     """Main app."""
 
-    current_equation = StringProperty()
+    current_equation = StringProperty("")
 
     def build(self):
         """Build app."""
