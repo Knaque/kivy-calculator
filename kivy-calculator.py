@@ -1,6 +1,10 @@
 """A little calculator app built in Python & Kivy."""
 
 try:
+    from kivy import Config
+    Config.set('graphics', 'minimum_width', '250')
+    Config.set('graphics', 'minimum_height', '300')
+
     from kivy.app import App
     from kivy.uix.screenmanager import Screen
     from kivy.properties import StringProperty
