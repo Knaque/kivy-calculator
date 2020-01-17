@@ -1,3 +1,4 @@
+#!/usr/bin/env python3.7
 """A little calculator app built in Python & Kivy."""
 
 try:
@@ -20,6 +21,7 @@ class CalculatorScreen(Screen):
     def type_check(self):
         """Check the current string when adding a new character."""
         self.app = App.get_running_app()
+
         if self.app.current_equation == "Error":
             self.app.current_equation = self.app.last_character
         else:
